@@ -9,7 +9,7 @@ data "vsphere_content_library_item" "aviController" {
 }
 
 resource "vsphere_virtual_machine" "controller" {
-  count            = length(var.controller.mgmt-ip)
+  count            = length(var.controller.mgmt_ip)
   name             = "controller-${var.controller.version}-${count.index}"
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
@@ -21,7 +21,6 @@ resource "vsphere_virtual_machine" "controller" {
   num_cpus = var.controller.cpu
   memory = var.controller.memory
   wait_for_guest_net_timeout = var.controller.wait_for_guest_net_timeout
-
   guest_id = "guestid-${var.controller.version}-${count.index}"
 
   disk {
