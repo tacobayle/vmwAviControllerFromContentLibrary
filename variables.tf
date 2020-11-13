@@ -1,9 +1,9 @@
 #
 # Environment Variables
 #
-variable "vmc_vsphere_user" {}
-variable "vmc_vsphere_password" {}
-variable "vmc_vsphere_server" {}
+variable "vsphere_user" {}
+variable "vsphere_password" {}
+variable "vsphere_server" {}
 
 #
 # Other Variables
