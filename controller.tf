@@ -35,7 +35,7 @@ resource "vsphere_virtual_machine" "controller" {
 
   vapp {
     properties = {
-      "mgmt-ip"     = var.controller.mgmt_ip
+      "mgmt-ip"     = element(var.controller.mgmt_ip, count.index)
       "mgmt-mask"   = var.controller.mgmt_mask
       "default-gw"  = var.controller.default_gw
    }
