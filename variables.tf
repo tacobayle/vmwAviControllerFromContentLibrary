@@ -20,10 +20,8 @@ variable "vcenter" {
 }
 
 variable "controller" {
-  type = map
   default = {
     cpu = 8
-    count = 1
     memory = 24768
     disk = 128
     version = "20.1.1-9071"
@@ -31,5 +29,8 @@ variable "controller" {
     content_library_name = "Avi Content Library"
     folder = "aviController"
     network = "sddc-cgw-network-1"
+    mgmt-ip = ["192.168.1.5", "192.168.1.6", "192.168.1.7"]
+    mgmt-mask = "255.255.255.0"
+    default_gw = "192.168.1.1"
   }
 }

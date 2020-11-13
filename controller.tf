@@ -9,7 +9,7 @@ data "vsphere_content_library_item" "aviController" {
 }
 
 resource "vsphere_virtual_machine" "controller" {
-  count            = var.controller.count
+  count            = length(var.controller.mgmt-ip)
   name             = "controller-${var.controller.version}-${count.index}"
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
@@ -34,11 +34,11 @@ resource "vsphere_virtual_machine" "controller" {
     template_uuid = data.vsphere_content_library_item.aviController.id
   }
 
-#  vapp {
-#    properties = {
-#      "mgmt-ip"     = var.controller["mgmt_ip"]
-#      "mgmt-mask"   = var.controller["mgmt_mask"]
-#      "default-gw"  = var.controller["default_gw"]
-#   }
-#  }
+  vapp {
+    properties = {
+      "mgmt-ip"     = var.controller.mgmt_ip
+      "mgmt-mask"   = var.controller.mgmt_mask
+      "default-gw"  = var.controller.default_gw
+   }
+ }
 }
