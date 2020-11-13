@@ -47,7 +47,7 @@ Avi 20.1.1 with one controller node or three controller nodes
 ## Run the terraform:
 - to apply the plan
 ```
-cd ~ ; git clone https://github.com/tacobayle/vmwAviControllerFromContentLibrary ; cd vmwAviControllerFromContentLibrary ; terraform init ; terraform apply -auto-approve``
+cd ~ ; git clone https://github.com/tacobayle/vmwAviControllerFromContentLibrary ; cd vmwAviControllerFromContentLibrary ; terraform init ; terraform apply -auto-approve
 ```
 - to destroy the plan
 ```
