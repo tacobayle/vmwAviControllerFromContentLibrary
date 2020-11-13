@@ -5,6 +5,7 @@ data "vsphere_content_library" "library" {
 data "vsphere_content_library_item" "aviController" {
   name       = "controller-${var.controller.version}.ova"
   library_id = data.vsphere_content_library.library.id
+  type = "local"
 }
 
 resource "vsphere_virtual_machine" "controller" {
