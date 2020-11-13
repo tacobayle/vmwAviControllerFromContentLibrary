@@ -1,31 +1,27 @@
 # vmwAviControllerFromContentLibrary
 
 ## Goals
-Spin up n avi Controller in v-center based on vcenter Content Library
+Spin up n avi Controller in vcenter based on local content library
 
 ## Prerequisites:
-- Make sure terraform is installed in the orchestrator VM
-- Make sure VMware credentials are configured as environment variable:
+- TF is installed
+- vcenter API reachable
+- VMware credentials configure as environment variables:
 ```
 TF_VAR_vsphere_user=******
 TF_VAR_vsphere_server=******
 TF_VAR_vsphere_password=******
 ```
-- Make sure you have the OVA in the content library whose name is controller-<avi-version>-template
-```
-controller-20.1.1-9071-template
-```
+- OVAs populated (controller-<avi-version>.ova) in the content library whose name is defined in var.controller.content_library_name
 
 ## Environment:
 
-Terraform plan has been tested against:
+TF plan has been tested against:
 
 ### terraform
 
 ```
-Your version of Terraform is out of date! The latest version
-is 0.13.4. You can update by downloading from https://www.terraform.io/downloads.html
-Terraform v0.13.0
+Terraform v0.13.5
 + provider registry.terraform.io/hashicorp/vsphere v1.24.2
 ```
 
@@ -36,23 +32,17 @@ Avi 20.1.1 with one controller node or three controller nodes
 
 ### V-center version:
 - VMware (V-center 6.7.0, ESXi, 6.7.0, 15160138)
+- local content library
 
 ## Input/Parameters:
-- All the paramaters/variables are stored in variables.tf
-- If you want to use static IP, uncomment the following in controller.tf:
-```
-#  vapp {
-#    properties = {
-#      "mgmt-ip"     = var.controller["mgmt_ip"]
-#      "mgmt-mask"   = var.controller["mgmt_mask"]
-#      "default-gw"  = var.controller["default_gw"]
-#   }
-#  }
-```
+- All variables stored in variables.tf
 
-## Use the the terraform script to:
+## Use the TF plan to:
 - Create a new folder within v-center
-- Spin up n Avi Controller in the network name called var.networkMgt
+- Spin up n (n is determined by the length of var.controller.mgmt_up) Avi Controller:
+    * in the network name called var.controller.network
+    * based on fixed IP addresses (var.controller.mgmt_ip)
+- Display the IPs addresses of the controller
 
 ## Run the terraform:
 - to apply the plan
