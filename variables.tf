@@ -29,8 +29,8 @@ variable "controller" {
     content_library_name = "Avi Content Library"
     folder = "aviController"
     network = "sddc-cgw-network-1"
-    mgmt-ip = ["192.168.1.5", "192.168.1.6", "192.168.1.7"]
-    mgmt-mask = "255.255.255.0"
+    mgmt_ip = ["192.168.1.5", "192.168.1.6", "192.168.1.7"]
+    mgmt_mask = "255.255.255.0"
     default_gw = "192.168.1.1"
   }
 }
