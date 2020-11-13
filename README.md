@@ -1,17 +1,17 @@
-# terraformAviControllerVmw
+# vmwAviControllerFromContentLibrary
 
 ## Goals
-Spin up n avi Controller in v-center
+Spin up n avi Controller in v-center based on vcenter Content Library
 
 ## Prerequisites:
-- Make sure terraform in installed in the orchestrator VM
-- Make sure VMware credential/details are configured as environment variable:
+- Make sure terraform is installed in the orchestrator VM
+- Make sure VMware credentials are configured as environment variable:
 ```
 TF_VAR_vsphere_user=******
 TF_VAR_vsphere_server=******
 TF_VAR_vsphere_password=******
 ```
-- Make sure you have VM template file in V-center which follow this name controller-<avi-version>-template
+- Make sure you have the OVA in the content library whose name is controller-<avi-version>-template
 ```
 controller-20.1.1-9071-template
 ```
@@ -57,7 +57,7 @@ Avi 20.1.1 with one controller node or three controller nodes
 ## Run the terraform:
 - to apply the plan
 ```
-cd ~ ; git clone https://github.com/tacobayle/terraformAviControllerVmw ; cd terraformAviControllerVmw ; terraform init ; terraform apply -auto-approve``
+cd ~ ; git clone https://github.com/tacobayle/vmwAviControllerFromContentLibrary ; cd vmwAviControllerFromContentLibrary ; terraform init ; terraform apply -auto-approve``
 ```
 - to destroy the plan
 ```
