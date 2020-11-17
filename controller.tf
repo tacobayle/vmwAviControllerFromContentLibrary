@@ -9,7 +9,7 @@ data "vsphere_content_library_item" "aviController" {
 }
 
 resource "vsphere_virtual_machine" "controller" {
-  count            = length(var.controller.mgmt_ip)
+  count            = length(var.controller.mgmt_ips)
   name             = "controller-${var.controller.version}-${count.index}"
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_resource_pool.pool.id
