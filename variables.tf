@@ -31,6 +31,6 @@ variable "controller" {
     networks = ["sddc-cgw-network-1", "sddc-cgw-network-1", "sddc-cgw-network-1"]
     mgmt_ips = ["192.168.1.5", "192.168.1.6", "192.168.1.7"]
     mgmt_masks = ["255.255.255.0", "255.255.255.0", "255.255.255.0"]
-    default_gw = ["192.168.1.1", "192.168.1.1", "192.168.1.1"]
+    default_gws = ["192.168.1.1", "192.168.1.1", "192.168.1.1"]
   }
 }
