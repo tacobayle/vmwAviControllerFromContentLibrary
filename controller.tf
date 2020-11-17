@@ -15,7 +15,7 @@ resource "vsphere_virtual_machine" "controller" {
   resource_pool_id = data.vsphere_resource_pool.pool.id
   folder           = vsphere_folder.folder.path
   network_interface {
-    network_id = data.vsphere_network.network.id
+    network_id = data.vsphere_network.networks[count.index].id
   }
 
   num_cpus = var.controller.cpu
@@ -36,8 +36,8 @@ resource "vsphere_virtual_machine" "controller" {
   vapp {
     properties = {
       "mgmt-ip"     = element(var.controller.mgmt_ip, count.index)
-      "mgmt-mask"   = var.controller.mgmt_mask
-      "default-gw"  = var.controller.default_gw
+      "mgmt-mask"   = element(var.controller.mgmt_mask, count.index)
+      "default-gw"  = element(var.controller.default_gw, count.index)
    }
  }
 }
