@@ -24,7 +24,7 @@ variable "controller" {
     cpu = 8
     memory = 24768
     disk = 128
-    version = "20.1.1-9071"
+    version = "20.1.2-9171"
     wait_for_guest_net_timeout = 2
     content_library_name = "Avi Content Library"
     folder = "aviController"
