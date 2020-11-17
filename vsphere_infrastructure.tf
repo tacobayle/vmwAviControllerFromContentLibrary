@@ -20,7 +20,7 @@ data "vsphere_resource_pool" "pool" {
 
 data "vsphere_network" "networks" {
   count = length(var.controller.networks)
-  name = var.controller.networks
+  name = element(var.controller.networks, count.index)
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
