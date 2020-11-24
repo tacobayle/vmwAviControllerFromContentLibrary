@@ -28,9 +28,9 @@ variable "controller" {
     wait_for_guest_net_timeout = 2
     content_library_name = "Avi Content Library"
     folder = "aviController"
-    networks = ["sddc-cgw-network-1", "sddc-cgw-network-1", "sddc-cgw-network-1"]
-    mgmt_ips = ["192.168.1.5", "192.168.1.6", "192.168.1.7"]
-    mgmt_masks = ["255.255.255.0", "255.255.255.0", "255.255.255.0"]
-    default_gws = ["192.168.1.1", "192.168.1.1", "192.168.1.1"]
+    networks = ["vxw-dvs-34-virtualwire-3-sid-1080002-sof2-01-vc08-avi-mgmt", "vxw-dvs-34-virtualwire-3-sid-1080002-sof2-01-vc08-avi-mgmt", "vxw-dvs-34-virtualwire-3-sid-1080002-sof2-01-vc08-avi-mgmt"]
+    mgmt_ips = ["10.41.134.127", "10.41.134.128", "10.41.134.129"]
+    mgmt_masks = ["255.255.252.0", "255.255.252.0", "255.255.252.0"]
+    default_gws = ["10.41.132.1", "10.41.132.1", "10.41.132.1"]
   }
 }
