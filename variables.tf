@@ -12,10 +12,10 @@ variable "vsphere_server" {}
 variable "vcenter" {
   type = map
   default = {
-    dc = "SDDC-Datacenter"
-    cluster = "Cluster-1"
-    datastore = "WorkloadDatastore"
-    resource_pool = "Cluster-1/Resources"
+    dc = "sof2-01-vc08"
+    cluster = "sof2-01-vc08c01"
+    datastore = "sof2-01-vc08c01-vsan"
+    resource_pool = "sof2-01-vc08c01/Resources"
   }
 }
 
